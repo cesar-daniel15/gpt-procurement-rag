@@ -1,0 +1,28 @@
+name: core-ollama
+
+networks:
+  rag-network:
+    external: true
+
+volumes:
+  ollama-data:
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - rag-network
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        ollama serve &
+        sleep 5
+        ollama pull nomic-embed-text
+        ollama pull qwen2.5:1.5b
+        wait
+    restart: unless-stopped
