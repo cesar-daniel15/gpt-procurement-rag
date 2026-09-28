@@ -8,7 +8,9 @@ Estão disponíveis os seguintes modelos RAG: Open WebUI, PrivateGPT e LocalGPT
 
 | Container | Portas (Host:Container) |
 | :--- | :--- |
-| **ollama** | `11434:11434` |
-| **rag-private** | `8002:8080` |
-| **rag-webui** | `3001:8080` |
-
+| **[ollama](http://localhost:11434)** | `11434:11434` |
+| **[rag-private](http://localhost:8002)** | `8002:8080` |
+| **[rag-webui](http://localhost:3001)** | `3001:8080` |
+| **[localgpt-frontend](http://localhost:3000)** | `3000:3000` |
+| **[localgpt-backend](http://localhost:8000)** | `8000:8000` |
+| **[localgpt-rag-api](http://localhost:8001)** | `8001:8001` |

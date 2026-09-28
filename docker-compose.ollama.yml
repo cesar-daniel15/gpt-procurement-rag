@@ -26,3 +26,4 @@ services:
         ollama pull qwen2.5:1.5b
         wait
     restart: unless-stopped
+    
