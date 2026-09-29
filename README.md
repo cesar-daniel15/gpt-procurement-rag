@@ -1,16 +1,94 @@
 # GPT Procurement Intelligent - Arquitetura RAG
 
-Este repositório contém os ficheiros de configuração em formato YML para a implementação da infraestrutura da Inteligência Artificial voltada para a análise de documentos. 
+Este repositório contém os ficheiros de configuração em formato YML necessários para implementar a infraestrutura de Inteligência Artificial destinada à análise de documentos.
 
-Estão disponíveis os seguintes modelos RAG: Open WebUI, PrivateGPT e LocalGPT
+A solução disponibiliza três ferramentas RAG:
+
+* Open WebUI
+* PrivateGPT
+* LocalGPT
+
+O objetivo é disponibilizar ferramentas de Inteligência Artificial de forma simples e acessível, permitindo a interação com documentos e a obtenção de respostas de forma autónoma.
 
 ## Estrutura
 
-| Container | Portas (Host:Container) |
-| :--- | :--- |
-| **[ollama](http://localhost:11434)** | `11434:11434` |
-| **[rag-private](http://localhost:8002)** | `8002:8080` |
-| **[rag-webui](http://localhost:3001)** | `3001:8080` |
-| **[localgpt-frontend](http://localhost:3000)** | `3000:3000` |
-| **[localgpt-backend](http://localhost:8000)** | `8000:8000` |
-| **[localgpt-rag-api](http://localhost:8001)** | `8001:8001` |
+| Ferramenta     | URL                     |
+| :------------- | :---------------------- |
+| **Open WebUI** | `http://localhost:3001` |
+| **PrivateGPT** | `http://localhost:8002` |
+| **LocalGPT**   | `http://localhost:3000` |
+
+O ambiente utiliza Docker para organizar e executar as diferentes ferramentas RAG.
+
+## Requisitos
+
+Antes de iniciar a instalação, é necessário ter:
+
+* Docker Desktop
+* Git
+
+Em ambiente Windows, o Docker Desktop pode ser instalado através da Microsoft Store.
+
+## Instalação
+
+### 1. Clonar o projeto
+
+No terminal, execute:
+
+```bash
+git clone https://github.com/cesar-daniel15/gpt-procurement-rag.git
+```
+
+Entre no diretório do projeto:
+
+```bash
+cd gpt-procurement-rag
+```
+
+### 2. Iniciar a estrutura Docker
+
+Execute:
+
+```bash
+docker compose up
+```
+
+A estrutura utiliza imagens pré-compiladas. O processo de instalação pode demorar aproximadamente 5 a 10 minutos.
+
+### 3. Instalar o LocalGPT
+
+O LocalGPT é instalado separadamente através do Git Bash.
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/promtengineer/localgpt
+```
+
+Entre na pasta:
+
+```bash
+cd localGPT
+```
+
+De seguida, execute o ficheiro `.start-docker.sh` para construir e iniciar automaticamente os containers do LocalGPT, constituídos pelas componentes Frontend, Backend e API.
+
+## Ordem de inicialização
+
+Depois da instalação, o container do Ollama (`core-ollama`) deve ser iniciado primeiro.
+
+De seguida, deve ser iniciada a ferramenta RAG pretendida:
+
+* Open WebUI
+* PrivateGPT
+* LocalGPT
+
+## Interfaces Gráficas
+
+Após a inicialização, as ferramentas podem ser acedidas através dos seguintes endereços:
+
+* **Open WebUI:** http://localhost:3001
+* **PrivateGPT:** http://localhost:8002
+* **LocalGPT:** http://localhost:3000
+
+A estrutura permite disponibilizar ferramentas de Inteligência Artificial para a análise de documentos através de uma instalação simples e acessível.
